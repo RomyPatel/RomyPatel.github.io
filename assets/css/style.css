@@ -1,0 +1,222 @@
+/* =========================================================================
+   al-folio–inspired minimal theme
+   Change the accent color in one place: --accent below.
+   ========================================================================= */
+
+:root {
+  --accent: #b509ac;              /* al-folio default theme color (magenta) */
+  --bg: #ffffff;
+  --text: #212529;
+  --text-muted: #828282;
+  --border: #ececec;
+  --card-bg: #ffffff;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] {
+  --bg: #1c1c1d;
+  --text: #e8e8e8;
+  --text-muted: #999999;
+  --border: #2d2d2f;
+  --card-bg: #212123;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --nav-bg: rgba(28, 28, 29, 0.85);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  transition: background 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Roboto Slab", "Roboto", serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover { color: var(--text); }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* ---------- layout ---------- */
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+main { padding: 2.5rem 0 3rem; min-height: calc(100vh - 200px); }
+
+/* ---------- navbar ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+}
+.brand {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.brand:hover { color: var(--accent); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: var(--text);
+  font-size: 1rem;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 1.05rem;
+  padding: 4px;
+  line-height: 1;
+}
+.theme-toggle:hover { color: var(--accent); }
+
+/* ---------- about / profile ---------- */
+.page-title {
+  font-size: 2.6rem;
+  margin: 0 0 0.2rem;
+}
+.page-subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin: 0 0 1.8rem;
+}
+.page-subtitle a { color: var(--text-muted); }
+.page-subtitle a:hover { color: var(--accent); }
+
+.profile {
+  float: right;
+  width: 250px;
+  max-width: 40%;
+  margin: 0 0 1rem 2rem;
+  text-align: center;
+}
+.profile img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+.profile figcaption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.about-text p { margin: 0 0 1rem; }
+
+/* ---------- social icons ---------- */
+.social {
+  clear: both;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  font-size: 1.5rem;
+}
+.social a {
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.social a:hover { color: var(--accent); transform: translateY(-2px); }
+
+/* ---------- empty states (publications / projects / blog) ---------- */
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3.5rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  margin-top: 1.5rem;
+}
+.empty-state i { font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-muted); }
+.empty-state p { margin: 0.4rem 0; }
+
+/* project grid (ready for when you add cards) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.3rem;
+  margin-top: 1.5rem;
+}
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+.card:hover { transform: translateY(-4px); }
+.card .card-body { padding: 1rem 1.1rem; }
+.card h3 { margin: 0 0 0.4rem; font-size: 1.15rem; }
+.card p { margin: 0; color: var(--text-muted); font-size: 0.92rem; }
+
+/* ---------- footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.6rem 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.site-footer a { color: var(--text-muted); }
+.site-footer a:hover { color: var(--accent); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 576px) {
+  .page-title { font-size: 2rem; }
+  .profile { float: none; width: 60%; max-width: none; margin: 0 auto 1.5rem; }
+  .nav-links { gap: 0.9rem; }
+  .brand { font-size: 1.15rem; }
+  .navbar .container { height: 56px; }
+}

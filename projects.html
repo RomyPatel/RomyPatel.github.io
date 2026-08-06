@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects &middot; Romy Nileshkumar Patel</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a class="brand" href="index.html">Romy Patel</a>
+      <ul class="nav-links">
+        <li><a href="index.html">about</a></li>
+        <li><a href="blog.html">blog</a></li>
+        <li><a href="publications.html">publications</a></li>
+        <li><a href="projects.html" class="active">projects</a></li>
+        <li><button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1 class="page-title">projects</h1>
+    <div class="empty-state">
+      <i class="fa-solid fa-diagram-project"></i>
+      <p><strong>No projects yet.</strong></p>
+      <p>Currently building &mdash; cool things are in the works. Check back soon!</p>
+    </div>
+
+    <!-- Template for when you're ready to add projects:
+    <div class="grid">
+      <a class="card" href="#">
+        <div class="card-body">
+          <h3>Project title</h3>
+          <p>Short one-line description of the project.</p>
+        </div>
+      </a>
+    </div>
+    -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; <span id="year">2026</span> Romy Nileshkumar Patel. Built with plain HTML &amp; CSS,
+      inspired by <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a>.
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
